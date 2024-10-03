@@ -42,10 +42,10 @@ pwn.college{Q6jBriMYwxaHKiv8cdz5MO5gJp0.dVDN1QDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
-## Challenge 3: ** Position thy self**
+## Challenge 3: **Position thy self**
 This challenge deals with the correct use of the ```cd``` command on the command line.
 
-### Steps involved in approaching the challenge and flag generation:
+### Steps involved in approaching the challenge:
 1. Finding the correct working directory to cd into: Running the ```/challenge/run``` command gave the following output:
 ```
 Incorrect...
@@ -57,11 +57,14 @@ Please use the `cd` utility to change directory appropriately.
 ```
 cd /var
 ```
-4. Once in the correct working directory, the following command was run to invoke the challenge:
+
+### Flag Generation:
+
+* Once in the correct working directory, the following command was run to invoke the challenge:
 ```
 /challenge/run
 ```
-5. The following output was generated:
+* The following output was generated:
 ```
 Correct!!!
 /challenge/run is an absolute path, invoked from the right directory!
