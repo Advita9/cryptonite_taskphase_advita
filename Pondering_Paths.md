@@ -144,3 +144,34 @@ pwn.college{M-IaTnScqTuU6e0qn0tONBxfIvI.dhDN1QDL2MTO0czW}
 
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 6: **implicit relative paths, from /**
+
+This challenge deals with understanding **relative paths**, in contrast to absolute paths, which were being dealt with until now.
+
+### Steps involved in approaching the challenge:
+1. Tried accessing the challenge using the usual absolute path: ```/challenge/run``` and got the following output:
+```
+Incorrect...
+You are not currently in the / directory.
+Please use the `cd` utility to change directory appropriately.
+```
+2. This implies using the ```cd /``` to navigate to the root directory.
+3. Used the ```ls``` command to check the files under the ```/``` directory, and find the one starting with *c* following the hint in the prompt.
+4. The ```challenge``` file should be the starting of the relative path we need to navigate into.
+
+### Flag Generation:
+
+* Once in the correct working directory, the following command was run to invoke the challenge:
+```
+challenge/run
+```
+
+* The following output was generated:
+```
+Correct!!!
+challenge/run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{8db8kFpv11WlNMUyyGTx6_HL8Kp.dlDN1QDL2MTO0czW}
+```
+
