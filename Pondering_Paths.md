@@ -47,11 +47,13 @@ This challenge deals with the correct use of the ```cd``` command on the command
 
 ### Steps involved in approaching the challenge:
 1. Finding the correct working directory to cd into: Running the ```/challenge/run``` command gave the following output:
+
 ```
 Incorrect...
 You are not currently in the /var directory.
 Please use the `cd` utility to change directory appropriately.
 ```
+
 2. This was indication that the correct working directory is the ```/var``` directory.
 3. The next step involved navigating to the ```/var``` directory using the following command:
 ```
@@ -78,13 +80,17 @@ Hence the flag was procured, copied (first into the pwn terminal and then from t
 This challenge involves understanding the use of the ```cd``` command to **change** the correct working directory.
 
 ### Steps involved in approaching the challenge:
-1. Finding the correct working directory to cd into: Running the ```/challenge/run``` command gave the following output:```
+1. Finding the correct working directory to cd into: Running the ```/challenge/run``` command gave the following output:
+
+```
 Incorrect...
 You are not currently in the /usr/share/doc directory.
 Please use the `cd` utility to change directory appropriately.
 ```
+
 2. This was indication that the correct working directory is the ```/usr/share/doc``` directory.
 3. The next step involved navigating to the ```/usr/share/doc``` directory using the following command:
+
 ```
 cd /usr/share/doc
 ```
