@@ -174,4 +174,38 @@ challenge/run is a relative path, invoked from the right directory!
 Here is your flag:
 pwn.college{8db8kFpv11WlNMUyyGTx6_HL8Kp.dlDN1QDL2MTO0czW}
 ```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+
+## Challenge 7: Explicit relative paths, from /
+
+This challenge involves exploring more explicit relative paths. 
+
+### Steps involved in approaching the challenge:
+1. Tried the usual method to invoke the challenge using ```/challenge/run``` and got the following output:
+```
+Incorrect...
+You are not currently in the / directory.
+Please use the `cd` utility to change directory appropriately.
+```
+2. This involves navigating to the ```/``` directory using the following command:
+```
+cd /
+```
+
+### Flag Generation:
+* Using the challenge prompt hint of first navigating into ```/``` as the current working directory, and then using a relative path with ```.``` as part of it, the following command was run to invoke the challenge and get the flag:
+```
+./challenge/run
+```
+
+* The following output was generated:
+```
+Correct!!!
+./challenge/run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{MzMyiaHKmI7IpLBrkiVgs5jNBFh.dBTN1QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
 
