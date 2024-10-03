@@ -209,3 +209,28 @@ pwn.college{MzMyiaHKmI7IpLBrkiVgs5jNBFh.dBTN1QDL2MTO0czW}
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
 
+## Challenge 8: Implicit relative path
+This challenge involves running paths using ```.``` from the ```/challenge``` directory, which is when Linux avoids looking in the current directory automatically (naked path provided).
+
+### Steps involved in approaching the challenge:
+1. As given in the challenge instructions, first navigated into the challenge directory using:
+```
+cd /challenge
+```
+2. The next step involves finding an appropriate relative path for ```run``` that explicitely signals Linux for invocation.
+
+### Flag Generation:
+* Using the challenge prompt hint of first navigating into ```/challenge``` as the current working directory, and then using a relative path with ```.``` as part of it, the following command was run to invoke the challenge and get the flag:
+```
+./run
+```
+
+* The following output was generated:
+```
+Correct!!!
+./run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{8Fl9U0BQ7TVVoCIWK4xkYH8jaD3.dFTN1QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
