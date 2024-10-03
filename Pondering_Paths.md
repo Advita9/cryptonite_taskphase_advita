@@ -74,7 +74,7 @@ pwn.college{USXMoqvnnQYypR13uiNnk-9IUrS.dZDN1QDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
-## Challenge 4: **Position elsewhere***
+## Challenge 4: **Position elsewhere**
 This challenge involves understanding the use of the ```cd``` command to **change** the correct working directory.
 
 ### Steps involved in approaching the challenge:
