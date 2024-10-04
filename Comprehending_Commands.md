@@ -268,7 +268,7 @@ The following commands were run sequentially in response to the output produced 
 11. ```ls```
 12. ```cat MESSAGE```
 13. ```ls /usr/share/emacs/26.3/etc/images/custom```
-14. ```cat /usr/share/emacs/26.3/etc/images/custom/SPOILER-TRAPPED
+14. ```cat /usr/share/emacs/26.3/etc/images/custom/SPOILER-TRAPPED```
 15. ```cd /usr/lib/python3.9/lib2to3/pgen2```
 16. ```ls -a```
 17. ```cat .BLUEPRINT```
@@ -289,7 +289,8 @@ cat DOSSIER
 * Thus the flag was hidden in the ```/usr/share/lintian``` directory and had to be invoked using the above commands.
 * On reading the ```DOSSIER``` file, the following output was generated:
 ```
-cd /usr/share/lintian
+CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
+It is: pwn.college{s5AN4Rfk8MBJNcURuw1L0UVEdhy.dljM4QDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
