@@ -246,4 +246,50 @@ cat .flag-29172305904359
 ```
 pwn.college{8RqMaN0ytjz4OnjLFkOaGyDGVsM.dBTN4QDL2MTO0czW}
 ```
-Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page..
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 9: **An Epic Filesystem Quest**
+
+This challenge involves a game to find a hidden flag using the ```cd```, ```ls``` and ```cat``` commands.
+
+### Steps involved in approaching the challenge:
+The following commands were run sequentially in response to the output produced at each step.
+
+1. ```cd /```
+2. ```ls```
+3. ```cat TEASER```
+4. ```cd /opt/aflplusplus/qemu_mode/qemuafl/authz```
+5. ```ls```
+6. ```cat TIP```
+7. ```cd /usr/local/lib/python3.8/dist-packages/angr/analyses/decompiler/ccall_rewriters```
+8. ```ls```
+9. ```cat README```
+10. ```cd /usr/lib/python3/dist-packages/sage/combinat/species```
+11. ```ls```
+12. ```cat MESSAGE```
+13. ```ls /usr/share/emacs/26.3/etc/images/custom```
+14. ```cat /usr/share/emacs/26.3/etc/images/custom/SPOILER-TRAPPED
+15. ```cd /usr/lib/python3.9/lib2to3/pgen2```
+16. ```ls -a```
+17. ```cat .BLUEPRINT```
+18. ```cd /usr/local/lib/python3.8/dist-packages/sympy/functions/special```
+19. ```ls```
+20. ```cat SECRET```
+21. ```cd /usr/share/javascript/three/examples/jsm/animation```
+22. ```ls```
+23. ```cat MEMO```
+24. ```cd /usr/share/lintian```
+
+### Flag Generation:
+
+* After performing the above series of commands, the final command that led to flag generation was:
+```
+cat DOSSIER
+```
+* Thus the flag was hidden in the ```/usr/share/lintian``` directory and had to be invoked using the above commands.
+* On reading the ```DOSSIER``` file, the following output was generated:
+```
+cd /usr/share/lintian
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
