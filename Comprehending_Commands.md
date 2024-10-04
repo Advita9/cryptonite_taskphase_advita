@@ -37,6 +37,7 @@ This challenge deals with understanding the use of the ```cat``` command when de
 Desktop  a  leap
 ```
 This confirms that ```flag``` is not in the ```~``` directory.
+
 2. Thus following the prompt, it implies that the absolute path needs to be used to access the flag.
 
 ### Flag Generation:
@@ -50,3 +51,28 @@ pwn.college{4ERCyaeOJ9mC7pKxbJc1Qa2Ig94.dlTM5QDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
+## Challenge 3: **more catting practice**
+
+This challenge deals with the use of the ```cat``` command using an absolute path as an argument, with the constraint of **NOT** using the ```cd``` command.
+
+### Steps involved in approaching the challenge:
+1. The command line gives the following instructions:
+```
+You cannot use the 'cd' command in this level, and must retrieve the flag by 
+absolute path. Plus, I hid the flag in a different directory! You can find it 
+in the file /usr/share/pyshared/flag. Go cat it out **without** cding into that 
+directory!
+```
+2. This makes it clear about using the ```cat``` command with the ```/usr/share/pyshared/flag``` argument as the absolute path of the file to be read to access the flag.
+
+### Flag Generation:
+* The following command is typed:
+```
+cat /usr/share/pyshared/flag
+```
+
+* The following output is generated:
+```
+pwn.college{8w22BWQAiC7HIYY_eIHYgIqz4Ex.dBjM5QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
