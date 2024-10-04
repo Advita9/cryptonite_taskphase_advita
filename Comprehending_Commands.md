@@ -294,3 +294,110 @@ It is: pwn.college{s5AN4Rfk8MBJNcURuw1L0UVEdhy.dljM4QDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
+## Challenge 10: **making directories**
+
+This challenge deals with understanding the use of the ```mkdir``` command to create a directory.
+
+### Steps involved in approaching the chaallenge:
+1. Since a ```pwn``` directory needs to be created inside ```/tmp```, the first step involves navigating to the ```tmp``` directory using the following command:
+```
+cd /tmp
+```
+2. The directory is created using the following command:
+```
+mkdir pwn
+```
+3. the ```ls``` command is run to check if the directory is created. The following output is generated:
+```
+bin  dbus-v5XupEQQjq  hsperfdata_root  pwn  ssh-XXXXXXNzDQjn  tmp.XvrUsDZh8M
+```
+Thus the ```pwn``` directory has been successfully created.
+4. Since the file needs to be created in the ```/tmp/pwn``` location, the next step involves navigating into it:
+```
+cd pwn
+```
+5. The ```college``` file is created using the following command:
+```
+touch college
+```
+6. The ```ls``` command is used to check if the file was created and the following output was generated:
+```
+college
+```
+This confirms the creation of the file.
+
+### Flag Generation:
+* Using the information in the prompt, the following command is run to generate the flag:
+```
+/challenge/run
+```
+* The following output is generated:
+```
+Success! Here is your flag:
+pwn.college{EDzPwM8elFwtwjIGWnLzZbTEjMV.dFzM4QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 11: **finding files**
+This challenge involves understanding the use of the ```flag``` command along with its ```-name``` parameter to find a file.
+If not by name, the file can also be found using its path as an argument.
+
+### Steps involved in approaching the challenge:
+1. Since the flag has been hidden in a random directory in the entire subsystem, the following command is run:
+```
+find / -name flag
+```
+```flag``` has been specified in the challenge statement.
+
+2. An output with a lot of paths is generated. The valid paths that are generated (Permission is **NOT** denied) are as follows:
+```
+/usr/local/lib/python3.8/dist-packages/pwnlib/flag
+/usr/local/share/radare2/5.9.5/flag
+/opt/linux/linux-5.4/drivers/net/ethernet/myricom/myri10ge/flag
+/opt/pwndbg/.venv/lib/python3.8/site-packages/pwnlib/flag
+/opt/radare2/libr/flag
+/nix/store/pmvk2bk4p550w182rjfm529kfqddnvh3-python3.11-pwntools-4.12.0/lib/python3.11/site-packages/pwnlib/flag
+/nix/store/1yagn5s8sf7kcs2hkccgf8d0wxlrv5sz-radare2-5.9.0/share/radare2/5.9.0/flag
+```
+
+3. Some of the paths end in a flag directory, while others end in a flag file.
+If it is a directory, the ```cd``` command is used to navigate into it, following which the ```ls``` command is used to list the contents of the ```flag``` directory. The ```cat``` command is used to read the contents of the files inside the ```flag``` directory to check if the flag exists or not.
+The following is the list of commands run based on the above approach.
+
+4. ```cat /usr/local/lib/python3.8/dist-packages/pwnlib/flag```
+
+5. ```cd /usr/local/lib/python3.8/dist-packages/pwnlib/flag```
+
+6. ```ls```
+
+7. ```cat flag.py```
+
+8. ``` cd ~```
+
+9. ```cd /usr/local/share/radare2/5.9.5/flag```
+
+10. ```ls```
+
+11. ```cat tags.r2```
+
+12. ```cd ~```
+
+13. ```cd /opt/linux/linux-5.4/drivers/net/ethernet/myricom/myri10ge/flag```
+
+### Flag Generation:
+
+* Running the aboce command gives the ouput that the ```flag``` is not a directory. 
+* As it is a file, the following command is run which finally generates the flag:
+```
+cat /opt/linux/linux-5.4/drivers/net/ethernet/myricom/myri10ge/flag
+```
+* The following output is generated:
+```
+pwn.college{sTbgoJl76Je_p93XVCRyamsZBlF.dJzM4QDL2MTO0czW}
+```
+
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+
+
+
