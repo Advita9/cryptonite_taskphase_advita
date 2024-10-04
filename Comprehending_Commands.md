@@ -25,4 +25,28 @@ cat flag
 pwn.college{AsJqMGItoa_RbhmBggHx1N8fNI-.dFzN1QDL2MTO0czW}
 ```
 
-* Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 2: **catting absolute paths**
+
+This challenge deals with understanding the use of the ```cat``` command when dealing with an absolute path as the argument instead of the file being located in the current/home directory.
+
+### Steps involved in approaching the challenge:
+1. The challenge prompt states that ```flag``` is not located in the home directory. To confirm this, the ```ls`` command is used to display the contents of the home directory, and the following output is generated:
+```
+Desktop  a  leap
+```
+This confirms that ```flag``` is not in the ```~``` directory.
+2. Thus following the prompt, it implies that the absolute path needs to be used to access the flag.
+
+### Flag Generation:
+* The following command is typed in the ```~``` directory to access the absolute path of the ```flag``` file:
+```
+cat /flag
+```
+* The following output is generated:
+```
+pwn.college{4ERCyaeOJ9mC7pKxbJc1Qa2Ig94.dlTM5QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
