@@ -50,3 +50,53 @@ cat: flag: Permission denied
 Correct argument! Here is the /flag file:
 pwn.college{EaDCukKeudCz-yxn8UBIRbSF_R9.dVjM5QDL2MTO0czW}
 ```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+
+## Challenge 3: **Reading Manuals**
+
+This challenge involves understanding the use of the ```man``` command, used to display the manual of the command passed as an argument.
+
+### Steps involved in approaching the challenge:
+1. The prompt states that the flag will be displayed through a command mentioned in the documentation for the ```challenge``` command.
+2. Thus the following command is typed:
+```man challenge```
+The following output is generated:
+```
+CHALLENGE(1)                  Challenge Commands                  CHALLENGE(1)
+
+NAME
+       /challenge/challenge - print the flag!
+
+SYNOPSIS
+       challenge OPTION
+
+DESCRIPTION
+       Output the flag when called with the right arguments.
+
+       --fortune
+              read a fortune
+
+       --version
+              output version information and exit
+
+       --rfxyif NUM
+              print the flag if NUM is 597
+
+AUTHOR
+       Written by Zardus.
+```
+3. Understanding the documentation:
+* ```/challenge/challenge```: Needs to be used to print the flag
+* ```--rfxyif NUM```: is the argument that needs to be used to print the flag with NUM = 597
+
+### Flag Generation:
+* Based on the documentation and correct syntax for the command, the following is used:
+```
+/challenge/challenge --rfxyif 597
+```
+* The following output is generated:
+```
+Correct usage! Your flag: pwn.college{UCrfUWx5GWCZXyIN9i7FfOF0KVb.dRTM4QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
