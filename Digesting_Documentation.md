@@ -138,7 +138,7 @@ Initializing...
 Correct usage! Your flag: pwn.college{owJbpVBILoptt6XbwiXCKYba8_i.dVTM4QDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
-```
+
 
 ## Challenge 5: **Searching for Manuals**
 
