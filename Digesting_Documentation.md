@@ -167,11 +167,15 @@ optional arguments:
 ```
 
 3. Understanding the documentation:
-* ```-g GIVE_THE_FLAG, --give-the-flag GIVE_THE_FLAG
-                        get the flag, if given the correct value```
+* 
+```
+-g GIVE_THE_FLAG, --give-the-flag GIVE_THE_FLAG get the flag, if given the correct value
+```
 This command needs to be used for flag generation. However the ```GIVE_THE_FLAG``` value is missing.
-* ```-p, --print-value     print the value that will cause the -g option to give
-                        you the flag```
+* 
+```
+-p, --print-value print the value that will cause the -g option to give you the flag
+```
 This command needs to be used to find the missing value. 
 
 4. The following command is then used for generating the missing value:
