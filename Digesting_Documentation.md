@@ -100,3 +100,142 @@ AUTHOR
 Correct usage! Your flag: pwn.college{UCrfUWx5GWCZXyIN9i7FfOF0KVb.dRTM4QDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 4: **Searching Manuals**
+
+This challenge involves understanding how to search through a manual using specific keys.
+
+### Steps involved in approaching the challenge:
+1. Reading the documentation for ```challenge``` using the following command:
+```
+man challenge
+```
+2. A long documentation page is displayed.
+3. The ```/flag``` command is typed to search for occurences of ```flag``` in the documentation.
+4. The ```n``` key is used to go through all occurences.
+5. Useful information found:
+```
+/challenge/challenge - print the flag!
+```
+```
+DESCRIPTION
+       Output the flag when called with the right argument.
+```
+6. The correct argument is found:
+```
+-r     This argument will give you the flag!
+```
+7. The ```q``` key is used to quit the documentation page.
+
+### Flag Generation:
+* The following command is used for generating the flag, after bringing together the correct command and argument from the documentation:
+```
+/challenge/challenge -r
+```
+* The following output is generated:
+```
+Initializing...
+Correct usage! Your flag: pwn.college{owJbpVBILoptt6XbwiXCKYba8_i.dVTM4QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+```
+
+## Challenge 5: **Searching for Manuals**
+
+## Challenge 6: **Helpful Programs**
+
+This challenge involves understanding the use of ```--help``` or ```-h``` to find information about programs that do not have a manual page associated with them.
+
+### Steps involved in approaching the challenge:
+1. The following command is used to look up information about the ```/challenge/challenge``` command:
+```
+/challenge/challenge --help
+```
+2. The following output is generated:
+```
+usage: a challenge to make you ask for help [-h] [--fortune] [-v]
+                                            [-g GIVE_THE_FLAG] [-p]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --fortune             read your fortune
+  -v, --version         get the version number
+  -g GIVE_THE_FLAG, --give-the-flag GIVE_THE_FLAG
+                        get the flag, if given the correct value
+  -p, --print-value     print the value that will cause the -g option to give
+                        you the flag
+```
+
+3. Understanding the documentation:
+* ```-g GIVE_THE_FLAG, --give-the-flag GIVE_THE_FLAG
+                        get the flag, if given the correct value```
+This command needs to be used for flag generation. However the ```GIVE_THE_FLAG``` value is missing.
+* ```-p, --print-value     print the value that will cause the -g option to give
+                        you the flag```
+This command needs to be used to find the missing value. 
+
+4. The following command is then used for generating the missing value:
+```
+/challenge/challenge --p
+```
+The following output is generated:
+```
+The secret value is: 55
+```
+
+### Flag Generation:
+* Putting together the information obtained from the ```-h``` page of the ```/challenge/challenge``` command, the following command is used for flag generation:
+```
+/challenge/challenge --g 55
+```
+* The following output is generated:
+```
+Correct usage! Your flag: pwn.college{oBgPjUzLYLfm0ADg5e5ZQDHf8k9.ddjM4QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 7: **Help for Builtins**
+
+This challenge involves understanding how to access information about the third type of programs: **built-in shell programs**. 
+
+### Steps involved in approaching the challenge:
+1. The challenge prompt states that the ```challenge``` command is a shell built-in for this challenge, instead of a program. 
+2. Thus the ```help``` command is used to acces its utility:
+```
+help challenge
+```
+The following output is generated:
+```
+challenge: challenge [--fortune] [--version] [--secret SECRET]
+    This builtin command will read you the flag, given the right arguments!
+    
+    Options:
+      --fortune		display a fortune
+      --version		display the version
+      --secret VALUE	prints the flag, if VALUE is correct
+
+    You must be sure to provide the right value to --secret. That value
+    is "M7mlAeVV".
+```
+3. Looking at the information, it is clear that the correct argument to be used for flag generation is:
+```
+--secret SECRET
+```
+The value of ```SECRET``` needs to be deciphered.
+4. Reading ahead, the correct value for the ```--secret``` argument is stated:
+```
+M7mlAeVV
+```
+
+### Flag Generation:
+* Putting together information from above, the following command is used for flag generation.
+```
+challenge --secret M7mlAeVV
+```
+* The following output is generated:
+```
+Correct! Here is your flag!
+pwn.college{M7mlAeVVp9vj5--gYMJ40YMD4hw.dRTM5QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
