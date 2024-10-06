@@ -225,6 +225,7 @@ challenge: challenge [--fortune] [--version] [--secret SECRET]
 --secret SECRET
 ```
 The value of ```SECRET``` needs to be deciphered.
+
 4. Reading ahead, the correct value for the ```--secret``` argument is stated:
 ```
 M7mlAeVV
