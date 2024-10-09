@@ -115,3 +115,42 @@ mode!
 
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
+## Challenge 4: **Redirecting Errors**
+This challenge involves understanding how to redirect not just standard output but also standard error and standard input.
+
+### Steps involved in approaching the challenge:
+1. The prompt states that the Standard Output of ```/challenge/run``` needs to be directed into ```myflag``` and the errors need to be directed into ```instructions```.
+2. Based on the instructions, the following command is run:
+```
+/challenge/run > myflag 2> intructions
+```
+### Flag Generation:
+* Once redirected, the following command is run to read the contents of ```myflag```.
+```
+cat myflag
+```
+* The following output is generated:
+```
+[FLAG] Here is your flag:
+[FLAG] pwn.college{0jUnQnnTlstNkFQvcnahoCOU24b.ddjN1QDL2MTO0czW}
+
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 5: **Redirecting input**
+This challenge involves understanding how to redirect input using ```<```.
+
+### Steps involved in approaching the challenge:
+1. The prompt states that the ```PWN``` file needs to contain the value ```COLLEGE```. The following command is run:
+```
+echo COLLEGE > PWN
+```
+2. The next step involves redirecting the input from ```PWN``` to  ```/challenge/run```.
+
+### Flag Generation:
+* Based on the prompt, the following command is run for flag generation:
+```
+/challenge/run < PWN
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
