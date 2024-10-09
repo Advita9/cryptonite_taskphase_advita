@@ -154,3 +154,63 @@ echo COLLEGE > PWN
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
+## Challenge 6: **Grepping stored results**
+This challenge involves using redirection as well as string searching using ```grep```.
+
+### Steps involved in approaching the challenge:
+1. The prompt states that the output of the ```/challenge/run``` needs to be redirected to ```/tmp/data.txt```.
+2. The following command is executed:
+```
+/challenge/run > /tmp/data.txt
+```
+3. The flag needs to found in the /tmp/data.txt using ```grep```.
+4. As mentioned earlier, flags start with the prefix ```pwn.college```. Thus that is the search_string used woth ```grep```.
+
+### Flag Generation:
+* Based on the abpve instructions, the following command is run to search for the flag:
+```
+grep pwn.college /tmp/data.txt
+```
+* The following output is generated:
+```
+pwn.college{8iUOeHZcuM-x6PHGAYVg23ssP_o.dhTM4QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 7: **Grepping live output**
+This challenge involves understanding the use of the ```|``` operator to connect standard output from the command to the left of the pipe to the standard input of the command to the right.
+
+### Steps involved in approaching the challenge:
+1. The prompt states that ```/challenge/run``` will output text that contains the flag.
+2. Based on the prompt, the standard output is ```/challenge/run``` and the standard input is ```grep pwn.college```.
+
+### Flag Generation:
+* Based on the instructions, the following command is run to incorporate both parts using ```|```:
+```
+/challenge/run | grep pwn.college
+```
+* The following output is generated:
+```
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge checks for a specific process at the other end of stdout : grep
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stdout to another process. Checking...
+[TEST] Performing checks on that process!
+
+[INFO] The process' executable is /nix/store/xpq4yhadyhazkcsggmqd7rsgvxb3kjy4-gnugrep-3.11/bin/grep.
+[INFO] This might be different than expected because of symbolic links (for example, from /usr/bin/python to /usr/bin/python3 to /usr/bin/python3.8).
+[INFO] To pass the checks, the executable must be grep.
+
+[PASS] You have passed the checks on the process on the other end of my stdout!
+[PASS] Success! You have satisfied all execution requirements.
+pwn.college{AYN_Q6RzquKlvbTjIlLDhDAobJD.dlTM4QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+
