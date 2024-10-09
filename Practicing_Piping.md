@@ -213,4 +213,45 @@ pwn.college{AYN_Q6RzquKlvbTjIlLDhDAobJD.dlTM4QDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
+## Challenge 9: **Duplicating piped data with tee**
+This challenge involves understanding the use of ```tee``` to store the output of a command to enable debugging.
+
+### Steos involved in approaching the challenge:
+1. The prompt states that the output of ```/challenge/pwn``` must be piped into /challenge/college with intercepting the data using ```tee```.
+2. Thus, the following command is run to store the output of ```/challenge/pwn``` in ```error```:
+```
+/challenge/pwn | tee error | /challenge/college
+```
+3. The following output is generated:
+```
+Processing...
+The input to 'college' does not contain the correct secret code! This code 
+should be provided by the 'pwn' command. HINT: use 'tee' to intercept the 
+output of 'pwn' and figure out what the code needs to be.
+```
+4. Next, ```error``` is read:
+```
+cat error
+```
+5. The following output is generated:
+```
+Usage: /challenge/pwn --secret [SECRET_ARG]
+
+SECRET_ARG should be "I5xjd7Ky"
+```
+### Flag Generation:
+* Based on the instructions, the following command is run to generate the flag finally:
+```
+/challenge/pwn --secret I5xjd7Ky | /challenge/college
+
+```
+* The following output is generated:
+```
+Processing...
+Correct! Passing secret value to /challenge/college...
+Great job! Here is your flag:
+pwn.college{I5xjd7KysuwCZkbffzs1i05WSqm.dFjM5QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
 
