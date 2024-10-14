@@ -55,3 +55,35 @@ pwn.college{8E9cjCaZuYSzzspEQX5Ktrq2Qp1.dhzM4QDL2MTO0czW}
 Now I will sleep for a while (so that you could find me with 'ps').
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 2: **Killing Processes**
+This challenge involves understanding the use of the ```kill``` command to terminate a currently running process.
+
+### Steps involved in approaching the challenge:
+1. To locate the process that needs to be killed, we find the process still running currently using ```sleep```.
+2. Thus we ```grep``` for it and pipeline it using the following command:
+```
+ps -e | grep sleep
+```
+3. Thus this lists all the currently running processes with ```sleep```.
+```
+    74 ?        00:00:00 sleep
+```
+4. Thus we have located the process that needs to be killed: ```74```
+5. The following command is run:
+```
+kill 74
+```
+6. On redoing step 2 no output is generated, so we have successfull killed the process.
+
+### Flag Generation:
+* Thw following command should generate the flag after killing ```74```:
+```
+/challenge/run
+```
+* The following output is generated:
+```
+Great job! Here is your payment:
+pwn.college{cQrGLp9tqguJq6X3QhqTOpmxhme.dJDN4QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
