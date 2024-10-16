@@ -47,4 +47,22 @@ pwn.college{I6w5W1Umdcj1UE7vScS4RFoBTp5.dZTN0UDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
+## Challenge 4: **Using sudo**
+This challenge involves understanding the use of ```sudo``` instead of ```su```, which defaults to running a command as root.
+
+### Steps involved in approaching the challenge:
+1. The prompt states that we get access to ```sudo``` to chaange permissions and read the flag.
+
+2. It will need to be combined with the ```cat /flag``` command argument.
+
+### Flag Generation:
+* To generate the flag, the following command is used:
+```
+sudo cat /flag
+```
+* The following output is generated:
+```
+pwn.college{If6Nqo0XM3dgTOq9Xo1of9ZlaIj.dhTN0UDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
