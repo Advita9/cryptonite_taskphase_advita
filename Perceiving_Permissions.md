@@ -85,7 +85,9 @@ ls -l /flag
 
 ```
 Thus currently there is read permission for the root.
+
 4. To change permissions, the file needs to be made accessible to either other users using ```o``` or ***all** users using ```a```.
+
 5. One of the two commands is used:
 ```
 chmod a+r /flag
@@ -112,3 +114,88 @@ cat /flag
 pwn.college{EhMt4br5ImNoci88o5PEs8JXxrZ.dNzNyUDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 5: **Executable Files**
+This challenge involves understanding how to add execute permissions to a file with the ```x``` argument.
+
+### Steps involved in approaching the challenge:
+1. The prompt states that permissions for the ```/challenge/run``` program need to be made executable.
+2. The current status is viewed using:
+```
+ls -l /challenge/run
+```
+3. The following output is generated:
+```
+-r--r--r-- 1 hacker hacker 32 Jul  4 06:37 /challenge/run
+```
+4. To change permission, the following command is used:
+```
+chmod a+x /challenge/run
+```
+This adds execute permission for all users.
+5. The new status is checked using:
+```
+ls -l /challenge/run
+```
+6. The following output is generated:
+```
+-r-xr-xr-x 1 hacker hacker 32 Jul  4 06:37 /challenge/run
+```
+
+### Flag Generation:
+* After successfull changing permission, the following command is used for flag generation:
+```
+/challenge/run
+```
+* The following output is generated:
+```
+Successful execution! Here is your flag:
+pwn.college{89sZOn5CSOD-hDGnlOsNeCxazkM.dJTM2QDL2MTO0czW}
+```
+Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
+
+## Challenge 8 **The SUID Bit**
+This challenge involves understanding how to set user id permissions **SUID** using ```chmod``` with the keyword ```s```.
+
+### Steps involved in approaching the challenge:
+
+1. The prompt states that we need to add the SUID bit to the ```/challenge/getroot program, and the read the flag from that shell.
+2. The following command is used to change permission:
+```
+chmod u+s /challenge/getroot
+```
+3. To spawn the root shell, the following command is used:
+```
+/challenge/getroot
+```
+4. The following output is generated:
+```
+SUCCESS! You have set the suid bit on this program, and it is running as root! 
+Here is your shell...
+```
+5. To check the avaiable files in the current shell, we used the following command:
+```
+ls
+```
+6. The following output is generated:
+```
+COLLEGE  PWN  error  flag          leap    some_file
+Desktop  a    file   instructions  myflag  the-flag
+```
+7. ```myflag``` is a text file, thus it should contain the flag.
+
+### Flag Generation:
+1. To read the file containing the flag, the following command is used:
+```
+cat myflag
+```
+2. The following output is generated:
+```
+
+[FLAG] Here is your flag:
+[FLAG] pwn.college{0jUnQnnTlstNkFQvcnahoCOU24b.ddjN1QDL2MTO0czW}
+
+
+```
+
+
