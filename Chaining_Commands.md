@@ -56,6 +56,8 @@ This challenge involves understanding how to pipe from a script into another pro
 * The following command is run to generate the flag:
 ```
 bash x.sh | /challenge/solve
+```
+
 * The following output is generated:
 ```
 Correct! Here is your flag:
