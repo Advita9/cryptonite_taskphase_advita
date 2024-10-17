@@ -24,7 +24,6 @@ pwn.college{M4d_-2hPDH5MKsjj8rIqVWtFpC5.dZzNwUDL2MTO0czW}
 ```
 Hence the flag was procured, copied (first into the pwn terminal and then from the pwn clipboard to make it accessible to the system clipboard), and pasted into the pwn.college challenge page.
 
-```
 
 ## Challenge 2: **Setting PATH**
 This challenge involves understanding how tomaintain useful scripts that can be launched only by name, by adding it to PATH.
