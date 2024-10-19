@@ -780,7 +780,8 @@ cat ./maybehere07/.file2
 7. Output:
 ```
 HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ```
+                                                                                    ```
+
 8. The current level is ```exit```.
 9. The next level is initiated:
 ```
