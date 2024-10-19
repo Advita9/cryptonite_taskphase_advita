@@ -1,13 +1,13 @@
 # Bandit
 
-## Level 0 to 1:
+## Level 0:
 1. Command to login:
 ```
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
-3. Password entered: bandit0
+2. Password entered: bandit0
 
-2. Output:
+3. Output:
 ```
                          _                     _ _ _
                         | |__   __ _ _ __   __| (_) |_
@@ -103,7 +103,7 @@ discord or IRC.
   Enjoy your stay!
 ```
 
-## Level 1 to 2: 
+## Level 0 to 1: 
 1. The files are listed using ```ls```.
 2. ```readme``` exists.
 3. The file is read using ```cat readme```.
@@ -227,7 +227,7 @@ discord or IRC.
   Enjoy your stay!
 ```
 
-## Challenge 2
+## Level 1 to 2:
 1. The files are listed using ```ls```.
 2. The contents are read using:
 ```
@@ -1261,12 +1261,13 @@ sort data.txt | uniq -u
 ```
 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
 ```
-4. The level is ```exit
-```
+4. The level is ```exit```.
+
 5. The next level is entered:
 ```
 ssh bandit9@bandit.labs.overthewire.org -p 2220
 ```
+
 6. Output:
 ```
                         _                     _ _ _
