@@ -1609,3 +1609,391 @@ discord or IRC.
 
   Enjoy your stay!
 ```
+
+## Level 11 to 12:
+1. The password is rotated by 13 characters, which makes it a ROT13 cipher.
+2. Since no inbuilt terminal decryption command exists, we create our own using ```tr``` command, the syntax for which is <old chars> <new chars>
+3. The data in the file is read:
+```
+cat data.txt
+```
+4. Output:
+```
+Gur cnffjbeq vf 7k16JArUVv5LxVuJfsSVdbbtaHGlw9D4
+```
+5. We pipe this output as input into the self made cipher decrypter:
+```
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
+6. This transforms A to N and Z to M and same for lowercase (13 characters).
+7. Output:
+```
+The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+```
+8. The current level is ```exit```.
+9. The next level is initiated:
+```
+ssh bandit12@bandit.labs.overthewire.org -p 2220
+```
+10. Output:
+```
+                         _                     _ _ _
+                        | |__   __ _ _ __   __| (_) |_
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+
+
+                      This is an OverTheWire game server.
+            More information on http://www.overthewire.org/wargames
+
+bandit12@bandit.labs.overthewire.org's password:
+
+      ,----..            ,----,          .---.
+     /   /   \         ,/   .`|         /. ./|
+    /   .     :      ,`   .'  :     .--'.  ' ;
+   .   /   ;.  \   ;    ;     /    /__./ \ : |
+  .   ;   /  ` ; .'___,/    ,' .--'.  '   \' .
+  ;   |  ; \ ; | |    :     | /___/ \ |    ' '
+  |   :  | ; | ' ;    |.';  ; ;   \  \;      :
+  .   |  ' ' ' : `----'  |  |  \   ;  `      |
+  '   ;  \; /  |     '   :  ;   .   \    .\  ;
+   \   \  ',  /      |   |  '    \   \   ' \ |
+    ;   :    /       '   :  |     :   '  |--"
+     \   \ .'        ;   |.'       \   \ ;
+  www. `---` ver     '---' he       '---" ire.org
+
+
+Welcome to OverTheWire!
+
+If you find any problems, please report them to the #wargames channel on
+discord or IRC.
+
+--[ Playing the games ]--
+
+  This machine might hold several wargames.
+  If you are playing "somegame", then:
+
+    * USERNAMES are somegame0, somegame1, ...
+    * Most LEVELS are stored in /somegame/.
+    * PASSWORDS for each level are stored in /etc/somegame_pass/.
+
+  Write-access to homedirectories is disabled. It is advised to create a
+  working directory with a hard-to-guess name in /tmp/.  You can use the
+  command "mktemp -d" in order to generate a random and hard to guess
+  directory in /tmp/.  Read-access to both /tmp/ is disabled and to /proc
+  restricted so that users cannot snoop on eachother. Files and directories
+  with easily guessable or short names will be periodically deleted! The /tmp
+  directory is regularly wiped.
+  Please play nice:
+
+    * don't leave orphan processes running
+    * don't leave exploit-files laying around
+    * don't annoy other players
+    * don't post passwords or spoilers
+    * again, DONT POST SPOILERS!
+      This includes writeups of your solution on your blog or website!
+
+--[ Tips ]--
+
+  This machine has a 64bit processor and many security-features enabled
+  by default, although ASLR has been switched off.  The following
+  compiler flags might be interesting:
+
+    -m32                    compile for 32bit
+    -fno-stack-protector    disable ProPolice
+    -Wl,-z,norelro          disable relro
+
+  In addition, the execstack tool can be used to flag the stack as
+  executable on ELF binaries.
+
+  Finally, network-access is limited for most levels by a local
+  firewall.
+
+--[ Tools ]--
+
+ For your convenience we have installed a few useful tools which you can find
+ in the following locations:
+
+    * gef (https://github.com/hugsy/gef) in /opt/gef/
+    * pwndbg (https://github.com/pwndbg/pwndbg) in /opt/pwndbg/
+    * gdbinit (https://github.com/gdbinit/Gdbinit) in /opt/gdbinit/
+    * pwntools (https://github.com/Gallopsled/pwntools)
+    * radare2 (http://www.radare.org/)
+
+--[ More information ]--
+
+  For more information regarding individual wargames, visit
+  http://www.overthewire.org/wargames/
+
+  For support, questions or comments, contact us on discord or IRC.
+
+  Enjoy your stay!
+```
+
+## Level 12 to 13:
+1. The file has been compressed using gzip, bzip2 and tar multiple times.
+2. According to instructions, we create a temp directory:
+```
+mktemp -d
+```
+3. ```ls```
+
+4. Output:
+```
+/tmp/tmp.yPViQtiznv
+data.txt
+```
+5. We copy to the new temp dir:
+```
+cp data.txt /tmp/tmp.yPViQtiznv
+```
+6. We move into the new dir:
+```
+cd /tmp/tmp.yPViQtiznv
+```
+7. Then we rename ```data.txt``` to ```data``` as its not a text file:
+```
+mv data.txt data
+```
+8. ```ls```
+
+9. Output:
+```
+data
+```
+10. We convert the hex data to binary using:
+```
+xxd -r data > binary
+```
+11. ```ls```
+
+12. Output:
+```
+binary data
+```
+13. To check the type of binary:
+```
+file binary
+```
+
+Output:
+```
+binary: gzip compressed data, was "data2.bin", last modified: Thu Sep 19 07:08:15 2024, max compression, from Unix, original size modulo 2^32 574
+```
+14. We rename ```binary```:
+```
+mv binary binary.gz
+```
+15. We decompress according to ```gzip```:
+```
+gzip -d binary.gz
+```
+16. ```ls```
+
+17. Output:
+```
+binary  data
+```
+18. ```file binary```
+
+Output:
+```
+binary: bzip2 compressed data, block size = 900k
+```
+19. ```mv binary binary.bz```
+20. ```bzip2 -d binary.bz```
+21. ```file binary```
+
+Output:
+```
+binary: gzip compressed data, was "data4.bin", last modified: Thu Sep 19 07:08:15 2024, max compression, from Unix, original size modulo 2^32 20480
+```
+22. mv binary binary.gz
+23. gzip -d binary.gz
+24. ```file binary```
+
+Output:
+```
+binary: POSIX tar archive (GNU)
+```
+25. ```tar -xf binary```
+
+```x``` is for data and ```f``` is for filename.
+26. ```ls```
+
+27. Output:
+```
+binary  data  data5.bin
+```
+28. ```file data5.bin```
+
+Output:
+```
+data5.bin: POSIX tar archive (GNU)
+```
+29. ```tar -xf data5.bin```
+
+29. ```ls```
+
+30. output:
+```
+binary  data  data5.bin  data6.bin
+```
+31. ```file data6.bin```
+
+32. ```mv data6.bin data6.bz```
+
+33. ```bzip2 -d data6.bz```
+
+34. ```ls```
+
+35. Output:
+```
+binary  data  data5.bin  data6
+```
+36. ```file data6```
+Output:
+```
+data6: POSIX tar archive (GNU)
+```
+37. ```tar -xf data6```
+
+38. ```ls```
+
+39. Output:
+```
+binary  data  data5.bin  data6  data8.bin
+```
+40. ```file data8.bin```
+
+Output:
+```
+data8.bin: gzip compressed data, was "data9.bin", last modified: Thu Sep 19 07:08:15 2024, max compression, from Unix, original size modulo 2^32 49
+```
+41. ```mv data8.bin data8.gz```
+
+42. ```gzip -d data8.gz```
+
+43. ```ls```
+
+44. Output:
+```
+binary  data  data5.bin  data6  data8
+```
+45. ```file data8```
+
+Output:
+```
+data8: ASCII text
+```
+46. The ASCII is readable:
+```
+cat data8
+```
+
+Output:
+```
+The password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+```
+
+47. The current level is ```exit```.
+48. The next level is started:
+```
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+```
+49. Output:
+```
+                         _                     _ _ _
+                        | |__   __ _ _ __   __| (_) |_
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+
+
+                      This is an OverTheWire game server.
+            More information on http://www.overthewire.org/wargames
+
+bandit13@bandit.labs.overthewire.org's password:
+
+      ,----..            ,----,          .---.
+     /   /   \         ,/   .`|         /. ./|
+    /   .     :      ,`   .'  :     .--'.  ' ;
+   .   /   ;.  \   ;    ;     /    /__./ \ : |
+  .   ;   /  ` ; .'___,/    ,' .--'.  '   \' .
+  ;   |  ; \ ; | |    :     | /___/ \ |    ' '
+  |   :  | ; | ' ;    |.';  ; ;   \  \;      :
+  .   |  ' ' ' : `----'  |  |  \   ;  `      |
+  '   ;  \; /  |     '   :  ;   .   \    .\  ;
+   \   \  ',  /      |   |  '    \   \   ' \ |
+    ;   :    /       '   :  |     :   '  |--"
+     \   \ .'        ;   |.'       \   \ ;
+  www. `---` ver     '---' he       '---" ire.org
+
+
+Welcome to OverTheWire!
+
+If you find any problems, please report them to the #wargames channel on
+discord or IRC.
+
+--[ Playing the games ]--
+
+  This machine might hold several wargames.
+  If you are playing "somegame", then:
+
+    * USERNAMES are somegame0, somegame1, ...
+    * Most LEVELS are stored in /somegame/.
+    * PASSWORDS for each level are stored in /etc/somegame_pass/.
+
+  Write-access to homedirectories is disabled. It is advised to create a
+  working directory with a hard-to-guess name in /tmp/.  You can use the
+  command "mktemp -d" in order to generate a random and hard to guess
+  directory in /tmp/.  Read-access to both /tmp/ is disabled and to /proc
+  restricted so that users cannot snoop on eachother. Files and directories
+  with easily guessable or short names will be periodically deleted! The /tmp
+  directory is regularly wiped.
+  Please play nice:
+
+    * don't leave orphan processes running
+    * don't leave exploit-files laying around
+    * don't annoy other players
+    * don't post passwords or spoilers
+    * again, DONT POST SPOILERS!
+      This includes writeups of your solution on your blog or website!
+
+--[ Tips ]--
+
+  This machine has a 64bit processor and many security-features enabled
+  by default, although ASLR has been switched off.  The following
+  compiler flags might be interesting:
+
+    -m32                    compile for 32bit
+    -fno-stack-protector    disable ProPolice
+    -Wl,-z,norelro          disable relro
+
+  In addition, the execstack tool can be used to flag the stack as
+  executable on ELF binaries.
+
+  Finally, network-access is limited for most levels by a local
+  firewall.
+
+--[ Tools ]--
+
+ For your convenience we have installed a few useful tools which you can find
+ in the following locations:
+
+    * gef (https://github.com/hugsy/gef) in /opt/gef/
+    * pwndbg (https://github.com/pwndbg/pwndbg) in /opt/pwndbg/
+    * gdbinit (https://github.com/gdbinit/Gdbinit) in /opt/gdbinit/
+    * pwntools (https://github.com/Gallopsled/pwntools)
+    * radare2 (http://www.radare.org/)
+
+--[ More information ]--
+
+  For more information regarding individual wargames, visit
+  http://www.overthewire.org/wargames/
+
+  For support, questions or comments, contact us on discord or IRC.
+
+  Enjoy your stay!
+``` 
