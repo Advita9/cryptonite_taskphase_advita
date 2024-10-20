@@ -1,4 +1,4 @@
-# Bandit
+# Bandit (Level 0 to 20)
 
 ## Level 0:
 1. Command to login:
