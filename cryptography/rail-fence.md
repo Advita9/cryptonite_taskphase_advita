@@ -29,6 +29,6 @@ The result provided gives the flag:
 The flag is: WH3R3_D035_7H3_F3NC3_8361N_4ND_3ND_4A76B997
 ```
 
-So the final flag is:L
+So the final flag is:
 ```
 picoCTF{WH3R3_D035_7H3_F3NC3_8361N_4ND_3ND_4A76B997}
